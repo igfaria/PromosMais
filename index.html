@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+  <title>promos+ | Promoções reais de tecnologia</title>
+  <meta name="description" content="promos+ reúne promoções reais de tecnologia. Entre no canal e receba ofertas quando realmente valem a pena." />
+
+  <style>
+    :root{
+      --bg:#0b0c10;
+      --card:#11131a;
+      --text:#e9ecf1;
+      --muted:#a7b0c0;
+      --brand:#a855f7; /* roxo */
+      --brand2:#22c55e; /* verde (whatsapp vibe) */
+      --stroke:rgba(255,255,255,.10);
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --radius: 18px;
+      --max: 1100px;
+    }
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; min-height: 100%; }
+    body{
+      background: #0b0c10; /* cor base */
+      position: relative;
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", sans-serif;
+      color:var(--text);
+      line-height:1.35;
+    }
+    body::before{
+    content:"";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(1200px 700px at 15% 10%, rgba(168,85,247,.22), transparent 60%),
+      radial-gradient(1100px 700px at 90% 20%, rgba(34,197,94,.14), transparent 60%),
+      radial-gradient(1400px 900px at 50% 85%, rgba(168,85,247,.12), transparent 65%),
+      #0b0c10;
+    }
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ width:100%; max-width:var(--max); margin:0 auto; padding: 18px 16px 96px; }
+
+    /* Top bar */
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(11,12,16,.55);
+      border-bottom: 1px solid var(--stroke);
+    }
+    .topbar{
+      max-width:var(--max);
+      margin:0 auto;
+      padding: 12px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:800; letter-spacing:.2px;
+    }
+    .logoMark{
+      width:34px; height:34px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(168,85,247,1), rgba(34,197,94,.85));
+      box-shadow: 0 10px 30px rgba(168,85,247,.25);
+      border: 1px solid rgba(255,255,255,.15);
+    }
+    .brand span{ font-size: 16px; }
+    .pill{
+      display:flex; align-items:center; gap:8px;
+      padding:8px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--stroke);
+      color: var(--muted);
+      font-size: 12px;
+      white-space:nowrap;
+    }
+    .dot{ width:8px; height:8px; border-radius:99px; background: var(--brand2); box-shadow: 0 0 0 4px rgba(34,197,94,.15); }
+    /*Logo*/
+    .logoMark{
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      object-fit: contain;
+      background: transparent;
+    }
+    /* Hero */
+    .hero{
+      padding: 22px 0 10px;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+    .heroCard{
+      background: rgba(17,19,26,.55);
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+    h1{
+      margin: 0 0 10px;
+      font-size: 30px;
+      line-height: 1.1;
+      letter-spacing: -.5px;
+    }
+    .sub{
+      margin:0 0 16px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .badges{
+      display:flex; flex-wrap:wrap; gap:8px;
+      margin: 10px 0 16px;
+    }
+    .badge{
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--stroke);
+      color: rgba(233,236,241,.92);
+      font-size: 12px;
+      background: rgba(255,255,255,.04);
+    }
+
+    /* Main CTA (center, mobile-first) */
+    .ctaMain{
+      margin-top: 10px;
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+      align-items:stretch;
+    }
+    .btn{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      width:100%;
+      padding: 16px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.12);
+      font-weight: 800;
+      font-size: 16px;
+      cursor:pointer;
+      transition: transform .08s ease, filter .15s ease;
+      user-select:none;
+    }
+    .btn:active{ transform: scale(.99); }
+    .btnWhatsapp{
+      background: linear-gradient(135deg, rgba(34,197,94,1), rgba(34,197,94,.80));
+      color: #08110a;
+      box-shadow: 0 16px 40px rgba(34,197,94,.18);
+    }
+    .btnSecondary{
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+    }
+    .hint{
+      color: var(--muted);
+      font-size: 12px;
+      margin: 10px 0 0;
+    }
+
+    /* Image placeholders */
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .ph{
+      border-radius: var(--radius);
+      border: 1px dashed rgba(255,255,255,.22);
+      background: rgba(255,255,255,.03);
+      min-height: 180px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: rgba(233,236,241,.55);
+      text-align:center;
+      padding: 14px;
+    }
+    .ph small{ display:block; color: rgba(233,236,241,.45); margin-top:6px; }
+
+    /* Sections */
+    section{
+      margin-top: 18px;
+      padding-top: 6px;
+    }
+    .sectionTitle{
+      font-size: 18px;
+      margin: 0 0 10px;
+      letter-spacing: -.2px;
+    }
+    .cards{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .card{
+      background: rgba(17,19,26,.50);
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      padding: 14px;
+    }
+    .card h3{
+      margin: 0 0 6px;
+      font-size: 15px;
+    }
+    .card p{
+      margin:0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* FAQ */
+    .faq details{
+      background: rgba(17,19,26,.50);
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+    }
+    .faq details + details{ margin-top: 10px; }
+    .faq summary{
+      cursor:pointer;
+      font-weight: 800;
+      list-style:none;
+      outline:none;
+    }
+    .faq summary::-webkit-details-marker{ display:none; }
+    .faq p{ margin: 10px 0 0; color: var(--muted); font-size: 13px; }
+
+    /* Footer */
+    footer{
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 12px;
+      text-align:center;
+      padding: 14px 0 8px;
+    }
+    .disclaimer{
+      margin-top: 10px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      text-align:left;
+      color: rgba(233,236,241,.78);
+    }
+    .disclaimer strong{ color: var(--text); }
+    .disclaimer a{ text-decoration: underline; }
+
+    /* Floating WhatsApp button */
+    .fab{
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 50;
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: linear-gradient(135deg, rgba(34,197,94,1), rgba(34,197,94,.80));
+      color:#06100a;
+      border: 1px solid rgba(255,255,255,.16);
+      box-shadow: 0 22px 60px rgba(34,197,94,.20);
+      cursor:pointer;
+    }
+    .fab:active{ transform: scale(.98); }
+    .phone-shift {
+      transform: translateX(2px);
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+
+    /* Desktop tweaks */
+    @media (min-width: 860px){
+      .wrap{ padding: 26px 18px 120px; }
+      .hero{
+        grid-template-columns: 1.2fr .8fr;
+        align-items: stretch;
+      }
+      h1{ font-size: 42px; }
+      .sub{ font-size: 16px; max-width: 52ch; }
+      .ctaMain{ flex-direction:row; }
+      .btn{ width:auto; min-width: 260px; }
+      .grid2{ grid-template-columns: 1fr 1fr; }
+      .cards{ grid-template-columns: 1fr 1fr 1fr; }
+      .ph{ min-height: 260px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="topbar">
+      <div class="brand" aria-label="promos+">
+        <img src="img/logo/logo.png" alt="promos+ logo" class="logoMark">
+        <span>promos+</span>
+      </div>
+      <div class="pill" title="Atualizações frequentes">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Promoções reais • sem spam</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- HERO -->
+    <div class="hero">
+      <div class="heroCard">
+        <h1>Promoções de tecnologia que realmente valem a pena.</h1>
+        <p class="sub">
+          Entre no <strong>promos+</strong> e receba ofertas quando estiverem boas de verdade.
+          Sem flood, sem “desconto fake”.
+        </p>
+
+        <div class="badges">
+          <span class="badge">⚡ Atualizações diárias</span>
+          <span class="badge">🧠 Curadoria por critérios</span>
+          <span class="badge">🛡️ Sem spam</span>
+          <span class="badge">📦 Ofertas podem expirar</span>
+        </div>
+
+        <div class="ctaMain">
+          <a class="btn btnWhatsapp" id="btnWhatsHero" href="#" rel="noopener">
+            <!-- WhatsApp icon (SVG) -->
+            <svg width="20" height="20" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+              <path d="M19.11 17.55c-.29-.14-1.69-.83-1.95-.92-.26-.1-.45-.14-.64.14-.19.29-.74.92-.91 1.11-.17.19-.33.21-.62.07-.29-.14-1.21-.45-2.31-1.43-.86-.77-1.44-1.71-1.61-2-.17-.29-.02-.45.13-.59.13-.13.29-.33.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.55-.88-2.12-.23-.56-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 1-1 2.43 0 1.43 1.02 2.82 1.16 3.02.14.19 2.01 3.07 4.88 4.3.68.29 1.21.46 1.62.59.68.22 1.3.19 1.79.12.55-.08 1.69-.69 1.93-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33z" fill="currentColor"/>
+              <path d="M16.02 3C8.84 3 3 8.83 3 16c0 2.25.6 4.45 1.74 6.38L3 29l6.78-1.78A12.9 12.9 0 0 0 16.02 29C23.2 29 29 23.17 29 16S23.2 3 16.02 3zm0 23.5c-2.01 0-3.98-.54-5.7-1.56l-.41-.24-4.02 1.06 1.07-3.92-.27-.41A10.4 10.4 0 0 1 5.62 16c0-5.74 4.67-10.4 10.4-10.4 5.74 0 10.4 4.66 10.4 10.4 0 5.74-4.66 10.4-10.4 10.4z" fill="currentColor"/>
+            </svg>
+            Entrar no WhatsApp
+          </a>
+
+          <button class="btn btnSecondary" id="btnHowItWorks" type="button">
+            Como funciona
+          </button>
+        </div>
+
+        <p class="hint">
+          Dica: salve o canal nos favoritos para não perder as melhores ofertas.
+        </p>
+      </div>
+
+
+      <div class="grid2">
+        <div class="ph" title="Espaço para imagem/print do seu canal">
+          <div>
+            <strong>Imagem/Print 1</strong>
+            <small>(troque por um print do canal ou exemplo de oferta)</small>
+          </div>
+        </div>
+        <div class="ph" title="Espaço para imagem/print do seu criativo">
+          <div>
+            <strong>Imagem/Print 2</strong>
+            <small>(troque por um criativo ou antes/depois de preço)</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BENEFÍCIOS -->
+    <section id="como-funciona">
+      <h2 class="sectionTitle">Como o promos+ funciona</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>1) A gente encontra as ofertas</h3>
+          <p>Ofertas vêm de marketplaces e são filtradas por critérios (categoria, preço, desconto, reputação etc.).</p>
+        </div>
+        <div class="card">
+          <h3>2) Só entra o que vale a pena</h3>
+          <p>Menos spam. Preferimos poucas promoções boas do que um monte de “mais ou menos”.</p>
+        </div>
+        <div class="card">
+          <h3>3) Você compra direto no marketplace</h3>
+          <p>Você é redirecionado para a loja. Preços e estoque podem mudar rápido.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROVA / EXEMPLOS -->
+<!--
+    <section>
+      <h2 class="sectionTitle">Exemplos (adicione seus prints)</h2>
+      <div class="grid2">
+        <div class="ph">
+          <div>
+            <strong>Print de oferta (antes/depois)</strong>
+            <small>(coloque aqui uma imagem de preço normal vs promo)</small>
+          </div>
+        </div>
+        <div class="ph">
+          <div>
+            <strong>Print de prova social</strong>
+            <small>(ex: “valeu, peguei barato” — sem dados sensíveis)</small>
+          </div>
+        </div>
+      </div>
+    </section>
+-->
+
+    <!-- FAQ -->
+    <section class="faq">
+      <h2 class="sectionTitle">Perguntas rápidas</h2>
+
+      <details>
+        <summary>Isso é loja? Vocês vendem diretamente?</summary>
+        <p>Não. O promos+ divulga ofertas e direciona para marketplaces parceiros. A compra é feita no site/app do marketplace.</p>
+      </details>
+
+      <details>
+        <summary>As promoções são garantidas?</summary>
+        <p>Não. Promoções podem expirar, mudar de preço ou acabar estoque a qualquer momento. A ideia é avisar rápido quando aparecer algo bom.</p>
+      </details>
+
+      <details>
+        <summary>Vai ter spam?</summary>
+        <p>Não é a proposta. A página é focada em qualidade: menos posts, mais chance de valer a pena.</p>
+      </details>
+
+      <details>
+        <summary>Vocês usam links de afiliado?</summary>
+        <p>Sim, alguns links podem ser de afiliados. Isso ajuda a manter o projeto sem aumentar o preço pra você.</p>
+      </details>
+    </section>
+
+    <div class="disclaimer">
+      <strong>Aviso:</strong> promoções e preços podem mudar rapidamente. O promos+ pode utilizar
+      <strong>links de afiliado</strong>. Não coletamos dados sensíveis nesta página.
+    </div>
+
+    <footer>
+      © <span id="year"></span> promos+ • Todos os direitos reservados
+    </footer>
+  </main>
+
+  <!-- Floating WhatsApp button -->
+  <button class="fab" id="fabWhats" aria-label="Abrir WhatsApp">
+    <svg width="22" height="22" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <path class="phone-shift" d="M19.11 17.55c-.29-.14-1.69-.83-1.95-.92-.26-.1-.45-.14-.64.14-.19.29-.74.92-.91 1.11-.17.19-.33.21-.62.07-.29-.14-1.21-.45-2.31-1.43-.86-.77-1.44-1.71-1.61-2-.17-.29-.02-.45.13-.59.13-.13.29-.33.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.55-.88-2.12-.23-.56-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 1-1 2.43 0 1.43 1.02 2.82 1.16 3.02.14.19 2.01 3.07 4.88 4.3.68.29 1.21.46 1.62.59.68.22 1.3.19 1.79.12.55-.08 1.69-.69 1.93-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33z" fill="currentColor"/>
+      <path d="M16.02 3C8.84 3 3 8.83 3 16c0 2.25.6 4.45 1.74 6.38L3 29l6.78-1.78A12.9 12.9 0 0 0 16.02 29C23.2 29 29 23.17 29 16S23.2 3 16.02 3zm0 23.5c-2.01 0-3.98-.54-5.7-1.56l-.41-.24-4.02 1.06 1.07-3.92-.27-.41A10.4 10.4 0 0 1 5.62 16c0-5.74 4.67-10.4 10.4-10.4 5.74 0 10.4 4.66 10.4 10.4 0 5.74-4.66 10.4-10.4 10.4z" fill="currentColor"/>
+    </svg>
+  </button>
+
+  <script>
+    // ====== CONFIGURE AQUI ======
+    // Coloque seu número com DDI e DDD, apenas números.
+    // Exemplo BR: 5531999999999
+    const WHATSAPP_NUMBER = "SEU_NUMERO_AQUI";
+
+    // Mensagem padrão que o usuário vai "pré-enviar" ao abrir o WhatsApp
+    const DEFAULT_MESSAGE = "Quero entrar no promos+ e receber promoções de tecnologia.";
+
+    // Link: para WhatsApp (usa wa.me)
+    function buildWhatsLink() {
+      const msg = encodeURIComponent(DEFAULT_MESSAGE);
+      return `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
+    }
+
+    // ====== Bind buttons ======
+    const btnHero = document.getElementById("btnWhatsHero");
+    const fab = document.getElementById("fabWhats");
+
+    function goWhats() {
+      const link = buildWhatsLink();
+      if (WHATSAPP_NUMBER === "SEU_NUMERO_AQUI" || !WHATSAPP_NUMBER.trim()) {
+        alert("Troque SEU_NUMERO_AQUI pelo seu número com DDI (ex: 5531999999999).");
+        return;
+      }
+      window.open(link, "_blank", "noopener,noreferrer");
+    }
+
+    btnHero.addEventListener("click", (e) => { e.preventDefault(); goWhats(); });
+    fab.addEventListener("click", goWhats);
+
+    // Smooth scroll to "Como funciona"
+    document.getElementById("btnHowItWorks").addEventListener("click", () => {
+      const el = document.getElementById("como-funciona");
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Optional: hide floating button near top if you want (simple behavior)
+    const fabBtn = document.getElementById("fabWhats");
+    const heroCard = document.querySelector(".heroCard");
+    const observer = new IntersectionObserver(([entry]) => {
+      // If hero is visible, keep FAB smaller opacity (optional)
+      fabBtn.style.opacity = entry.isIntersecting ? "0.92" : "1";
+    }, { threshold: 0.2 });
+    observer.observe(heroCard);
+  </script>
+</body>
+</html>
