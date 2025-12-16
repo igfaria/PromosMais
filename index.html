@@ -301,6 +301,12 @@
     }
   </style>
   <!-- Meta Pixel Code -->
+<!--<script>
+  // ====== FACEBOOK ======
+  const FACEBOOK_PIXEL_ID = "SEU_PIXEL_ID_AQUI";
+  const FACEBOOK_CAPI_TOKEN = "SEU_TOKEN_AQUI";
+</script>
+-->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -478,7 +484,7 @@ src="https://www.facebook.com/tr?id=823583633825968&ev=PageView&noscript=1"
 
     // Mensagem padrão que o usuário vai "pré-enviar" ao abrir o WhatsApp
     const DEFAULT_MESSAGE = "Quero entrar no promos+ e receber promoções de tecnologia.";
-
+    
     // Link: para WhatsApp (usa wa.me)
     function buildWhatsLink() {
       const msg = encodeURIComponent(DEFAULT_MESSAGE);
@@ -491,6 +497,14 @@ src="https://www.facebook.com/tr?id=823583633825968&ev=PageView&noscript=1"
 
     function goWhats() {
       const link = buildWhatsLink();
+      // Evento de clique no WhatsApp
+      if (typeof fbq === "function") {
+        fbq('track', 'Contact', {
+          channel: 'WhatsApp',
+          project: 'promos+'
+        });
+      }
+
       if (WHATSAPP_NUMBER === "SEU_NUMERO_AQUI" || !WHATSAPP_NUMBER.trim()) {
         alert("Troque SEU_NUMERO_AQUI pelo seu número com DDI (ex: 5531999999999).");
         return;
@@ -521,6 +535,7 @@ src="https://www.facebook.com/tr?id=823583633825968&ev=PageView&noscript=1"
   </script>
 </body>
 </html>
+
 
 
 
