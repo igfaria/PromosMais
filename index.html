@@ -4,139 +4,147 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+
   <title>Promos+ | Promoções reais de tecnologia</title>
   <meta name="description" content="promos+ reúne promoções reais de tecnologia. Entre no canal e receba ofertas quando realmente valem a pena." />
 
   <style>
     :root{
       --bg:#0b0c10;
-      --card:#11131a;
       --text:#e9ecf1;
       --muted:#a7b0c0;
-      --brand:#a855f7; /* roxo */
-      --brand2:#22c55e; /* verde (whatsapp vibe) */
+      --brand:#22c55e;
       --stroke:rgba(255,255,255,.10);
-      --shadow: 0 18px 60px rgba(0,0,0,.45);
-      --radius: 18px;
-      --max: 1100px;
+      --shadow:0 18px 60px rgba(0,0,0,.45);
+      --radius:18px;
+      --max:1100px;
     }
-    *{ box-sizing:border-box; }
-    html,body{ height:100%; min-height: 100%; }
+    *{box-sizing:border-box}
+    html,body{height:100%}
     body{
-      background: #0b0c10; /* cor base */
-      position: relative;
       margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", sans-serif;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,"Helvetica Neue",sans-serif;
+      background:var(--bg);
       color:var(--text);
       line-height:1.35;
     }
     body::before{
-    content:"";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    background:
-      radial-gradient(1200px 700px at 15% 10%, rgba(168,85,247,.22), transparent 60%),
-      radial-gradient(1100px 700px at 90% 20%, rgba(34,197,94,.14), transparent 60%),
-      radial-gradient(1400px 900px at 50% 85%, rgba(168,85,247,.12), transparent 65%),
-      #0b0c10;
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      pointer-events:none;
+      background:
+        radial-gradient(1200px 700px at 15% 10%, rgba(168,85,247,.22), transparent 60%),
+        radial-gradient(1100px 700px at 90% 20%, rgba(34,197,94,.14), transparent 60%),
+        radial-gradient(1400px 900px at 50% 85%, rgba(168,85,247,.12), transparent 65%),
+        #0b0c10;
     }
-    a{ color:inherit; text-decoration:none; }
-    .wrap{ width:100%; max-width:var(--max); margin:0 auto; padding: 18px 16px 96px; }
+    a{text-decoration:none;color:inherit}
 
-    /* Top bar */
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:18px 16px 96px;
+    }
+
+    /* HEADER */
     header{
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(10px);
-      background: rgba(11,12,16,.55);
-      border-bottom: 1px solid var(--stroke);
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter:blur(10px);
+      background:rgba(11,12,16,.55);
+      border-bottom:1px solid var(--stroke);
     }
     .topbar{
       max-width:var(--max);
       margin:0 auto;
-      padding: 12px 16px;
+      padding:12px 16px;
       display:flex;
-      align-items:center;
       justify-content:space-between;
-      gap: 12px;
+      align-items:center;
+      gap:12px;
     }
     .brand{
-      display:flex; align-items:center; gap:10px;
-      font-weight:800; letter-spacing:.2px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:800;
+      letter-spacing:.2px;
     }
     .logoMark{
-      width:34px; height:34px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, rgba(168,85,247,1), rgba(34,197,94,.85));
-      box-shadow: 0 10px 30px rgba(168,85,247,.25);
-      border: 1px solid rgba(255,255,255,.15);
+      width:34px;
+      height:34px;
+      border-radius:10px;
+      object-fit:contain;
+      background:transparent;
     }
-    .brand span{ font-size: 16px; }
     .pill{
-      display:flex; align-items:center; gap:8px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      font-size:12px;
       padding:8px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--stroke);
-      color: var(--muted);
-      font-size: 12px;
+      border:1px solid var(--stroke);
+      border-radius:999px;
+      color:var(--muted);
       white-space:nowrap;
     }
-    .dot{ width:8px; height:8px; border-radius:99px; background: var(--brand2); box-shadow: 0 0 0 4px rgba(34,197,94,.15); }
-    /*Logo*/
-    .logoMark{
-      width: 34px;
-      height: 34px;
-      border-radius: 10px;
-      object-fit: contain;
-      background: transparent;
+    .dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--brand);
+      box-shadow:0 0 0 4px rgba(34,197,94,.15);
     }
-    /* Hero */
+
+    /* HERO */
     .hero{
-      padding: 22px 0 10px;
       display:grid;
-      grid-template-columns: 1fr;
-      gap: 18px;
+      grid-template-columns:1fr;
+      gap:18px;
+      padding:22px 0 10px;
     }
     .heroCard{
-      background: rgba(17,19,26,.55);
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 18px;
+      background:rgba(17,19,26,.55);
+      border:1px solid var(--stroke);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:var(--shadow);
     }
     h1{
-      margin: 0 0 10px;
-      font-size: 30px;
-      line-height: 1.1;
-      letter-spacing: -.5px;
+      margin:0 0 10px;
+      font-size:30px;
+      line-height:1.1;
+      letter-spacing:-.5px;
     }
     .sub{
       margin:0 0 16px;
-      color: var(--muted);
-      font-size: 15px;
+      color:var(--muted);
+      font-size:15px;
     }
     .badges{
-      display:flex; flex-wrap:wrap; gap:8px;
-      margin: 10px 0 16px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin:10px 0 16px;
     }
     .badge{
-      padding: 7px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--stroke);
-      color: rgba(233,236,241,.92);
-      font-size: 12px;
-      background: rgba(255,255,255,.04);
+      font-size:12px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.04);
+      color:rgba(233,236,241,.92);
     }
 
-    /* Main CTA (center, mobile-first) */
+    /* CTA */
     .ctaMain{
-      margin-top: 10px;
       display:flex;
       flex-direction:column;
-      gap: 10px;
+      gap:10px;
+      margin-top:10px;
       align-items:stretch;
     }
     .btn{
@@ -145,171 +153,178 @@
       justify-content:center;
       gap:10px;
       width:100%;
-      padding: 16px 14px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.12);
-      font-weight: 800;
-      font-size: 16px;
-      cursor:pointer;
-      transition: transform .08s ease, filter .15s ease;
+      padding:16px 14px;
+      border-radius:16px;
+      font-weight:800;
+      font-size:16px;
+      border:1px solid rgba(255,255,255,.12);
+      background:linear-gradient(135deg,var(--brand),rgba(34,197,94,.8));
+      color:#08110a;
+      box-shadow:0 16px 40px rgba(34,197,94,.18);
+      transition:transform .08s ease;
       user-select:none;
+      cursor:pointer;
     }
-    .btn:active{ transform: scale(.99); }
-    .btnWhatsapp{
-      background: linear-gradient(135deg, rgba(34,197,94,1), rgba(34,197,94,.80));
-      color: #08110a;
-      box-shadow: 0 16px 40px rgba(34,197,94,.18);
-    }
-    .btnSecondary{
-      /*background: rgba(255,255,255,.06);*/
-      background: linear-gradient(135deg, rgba(34,197,94,1), rgba(34,197,94,.80));
-      color: #08110a;
-      box-shadow: 0 16px 40px rgba(34,197,94,.18);
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", sans-serif !important;
-    }
+    .btn:active{transform:scale(.99)}
+
     .hint{
-      color: var(--muted);
-      font-size: 12px;
-      margin: 10px 0 0;
+      margin-top:10px;
+      font-size:12px;
+      color:var(--muted);
     }
 
-    /* Image placeholders */
+    /* ====== AQUI ERA O .grid2 COM 2 IMAGENS; AGORA É CARROSSEL ====== */
     .grid2{
       display:grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-      margin-top: 14px;
+      grid-template-columns:1fr;
+      gap:14px;
+      margin-top:14px;
     }
-    .ph{
-      border-radius: var(--radius);
-      /*border: 1px dashed rgba(255,255,255,.22);*/
-      background: rgba(255,255,255,.03);
-      min-height: 180px;
+
+    .carousel{
+      position:relative;
+      border-radius:var(--radius);
+      background:rgba(255,255,255,.03);
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.06);
+    }
+    .carousel-track{
+      display:flex;
+      overflow-x:auto;
+      scroll-snap-type:x mandatory;
+      scroll-behavior:smooth;
+      -webkit-overflow-scrolling:touch;
+    }
+    .carousel-track::-webkit-scrollbar{display:none}
+
+    .carousel-slide{
+      min-width:100%;
+      scroll-snap-align:center;
       display:flex;
       align-items:center;
       justify-content:center;
-      color: rgba(233,236,241,.55);
-      text-align:center;
-      padding: 14px;
+      padding:14px;
     }
-    .ph small{ display:block; color: rgba(233,236,241,.45); margin-top:6px; }
+    .carousel-slide img{
+      width:100%;
+      height:auto;
+      max-width:520px; /* mantém o mesmo “tamanho visual” do bloco */
+      border-radius:14px;
+      display:block;
+    }
 
-    /* Sections */
-    section{
-      margin-top: 18px;
-      padding-top: 6px;
+    .carousel-btn{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      width:38px;
+      height:38px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(0,0,0,.45);
+      color:#fff;
+      cursor:pointer;
+      display:none; /* aparece no desktop */
+      align-items:center;
+      justify-content:center;
+      user-select:none;
     }
+    .carousel-btn:active{transform:translateY(-50%) scale(.98)}
+    .carousel-btn.left{left:10px}
+    .carousel-btn.right{right:10px}
+
+    /* SEÇÕES */
+    section{margin-top:18px;padding-top:6px}
     .sectionTitle{
-      font-size: 18px;
-      margin: 0 0 10px;
-      letter-spacing: -.2px;
+      font-size:18px;
+      margin:0 0 10px;
+      letter-spacing:-.2px;
     }
     .cards{
       display:grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
+      grid-template-columns:1fr;
+      gap:12px;
     }
     .card{
-      background: rgba(17,19,26,.50);
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius);
-      padding: 14px;
+      background:rgba(17,19,26,.5);
+      border:1px solid var(--stroke);
+      border-radius:var(--radius);
+      padding:14px;
     }
-    .card h3{
-      margin: 0 0 6px;
-      font-size: 15px;
-    }
-    .card p{
-      margin:0;
-      color: var(--muted);
-      font-size: 13px;
-    }
+    .card h3{margin:0 0 6px;font-size:15px}
+    .card p{margin:0;font-size:13px;color:var(--muted)}
 
     /* FAQ */
     .faq details{
-      background: rgba(17,19,26,.50);
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius);
-      padding: 12px 14px;
+      background:rgba(17,19,26,.50);
+      border:1px solid var(--stroke);
+      border-radius:var(--radius);
+      padding:12px 14px;
     }
-    .faq details + details{ margin-top: 10px; }
-    .faq summary{
-      cursor:pointer;
-      font-weight: 800;
-      list-style:none;
-      outline:none;
-    }
-    .faq summary::-webkit-details-marker{ display:none; }
-    .faq p{ margin: 10px 0 0; color: var(--muted); font-size: 13px; }
+    .faq details + details{margin-top:10px}
+    .faq summary{cursor:pointer;font-weight:800;list-style:none;outline:none}
+    .faq summary::-webkit-details-marker{display:none}
+    .faq p{margin:10px 0 0;color:var(--muted);font-size:13px}
 
-    /* Footer */
-    footer{
-      margin-top: 18px;
-      color: var(--muted);
-      font-size: 12px;
-      text-align:center;
-      padding: 14px 0 8px;
-    }
     .disclaimer{
-      margin-top: 10px;
-      background: rgba(255,255,255,.04);
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius);
-      padding: 12px 14px;
+      margin-top:10px;
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--stroke);
+      border-radius:var(--radius);
+      padding:12px 14px;
       text-align:left;
-      color: rgba(233,236,241,.78);
+      color:rgba(233,236,241,.78);
+      font-size:13px;
     }
-    .disclaimer strong{ color: var(--text); }
-    .disclaimer a{ text-decoration: underline; }
+    .disclaimer strong{color:var(--text)}
+    .disclaimer a{text-decoration:underline}
 
-    /* Floating WhatsApp button */
+    footer{
+      margin-top:18px;
+      text-align:center;
+      font-size:12px;
+      color:var(--muted);
+      padding:14px 0 8px;
+    }
+
+    /* FAB */
     .fab{
-      position: fixed;
-      right: 16px;
-      bottom: 16px;
-      z-index: 50;
-      width: 58px;
-      height: 58px;
-      border-radius: 18px;
+      position:fixed;
+      right:16px;
+      bottom:16px;
+      width:58px;
+      height:58px;
+      border-radius:18px;
       display:flex;
       align-items:center;
       justify-content:center;
-      background: linear-gradient(135deg, rgba(34,197,94,1), rgba(34,197,94,.80));
-      color:#06100a;
-      border: 1px solid rgba(255,255,255,.16);
-      box-shadow: 0 22px 60px rgba(34,197,94,.20);
+      background:linear-gradient(135deg,var(--brand),rgba(34,197,94,.8));
+      border:1px solid rgba(255,255,255,.16);
+      box-shadow:0 22px 60px rgba(34,197,94,.2);
       cursor:pointer;
+      z-index:50;
     }
-    .fab:active{ transform: scale(.98); }
+
     .phone-shift {
       transform: translateX(2px);
       transform-box: fill-box;
       transform-origin: center;
     }
 
-    /* Desktop tweaks */
-    @media (min-width: 860px){
-      .wrap{ padding: 26px 18px 120px; }
-      .hero{
-        grid-template-columns: 1.2fr .8fr;
-        align-items: stretch;
-      }
-      h1{ font-size: 42px; }
-      .sub{ font-size: 16px; max-width: 52ch; }
-      .ctaMain{ flex-direction:row; }
-      .btn{ width:auto; min-width: 260px; }
-      .grid2{ grid-template-columns: 1fr 1fr; }
-      .cards{ grid-template-columns: 1fr 1fr 1fr; }
-      .ph{ min-height: 260px; }
+    /* Desktop */
+    @media (min-width:860px){
+      .wrap{padding:26px 18px 120px}
+      h1{font-size:42px}
+      .hero{grid-template-columns:1.2fr .8fr;align-items:stretch}
+      .ctaMain{flex-direction:row}
+      .btn{width:auto;min-width:260px}
+      .cards{grid-template-columns:repeat(3,1fr)}
+      .carousel-btn{display:flex}
+      .carousel-slide{padding:14px}
     }
   </style>
-  <!-- Meta Pixel Code -->
-<!--<script>
-  // ====== FACEBOOK ======
-  const FACEBOOK_PIXEL_ID = "SEU_PIXEL_ID_AQUI";
-  const FACEBOOK_CAPI_TOKEN = "SEU_TOKEN_AQUI";
-</script>
--->
+
+  <!-- Meta Pixel -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -329,10 +344,19 @@ src="https://www.facebook.com/tr?id=823583633825968&ev=PageView&noscript=1"
 </head>
 
 <body>
+
+  <!-- SVG reutilizável -->
+  <svg width="0" height="0" style="position:absolute;left:-9999px;top:-9999px" aria-hidden="true" focusable="false">
+    <symbol id="ico-whatsapp" viewBox="0 0 32 32">
+      <path class="phone-shift" d="M19.11 17.55c-.29-.14-1.69-.83-1.95-.92-.26-.1-.45-.14-.64.14-.19.29-.74.92-.91 1.11-.17.19-.33.21-.62.07-.29-.14-1.21-.45-2.31-1.43-.86-.77-1.44-1.71-1.61-2-.17-.29-.02-.45.13-.59.13-.13.29-.33.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.55-.88-2.12-.23-.56-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 1-1 2.43 0 1.43 1.02 2.82 1.16 3.02.14.19 2.01 3.07 4.88 4.3.68.29 1.21.46 1.62.59.68.22 1.3.19 1.79.12.55-.08 1.69-.69 1.93-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33z" fill="currentColor"/>
+      <path d="M16.02 3C8.84 3 3 8.83 3 16c0 2.25.6 4.45 1.74 6.38L3 29l6.78-1.78A12.9 12.9 0 0 0 16.02 29C23.2 29 29 23.17 29 16S23.2 3 16.02 3zm0 23.5c-2.01 0-3.98-.54-5.7-1.56l-.41-.24-4.02 1.06 1.07-3.92-.27-.41A10.4 10.4 0 0 1 5.62 16c0-5.74 4.67-10.4 10.4-10.4 5.74 0 10.4 4.66 10.4 10.4 0 5.74-4.66 10.4-10.4 10.4z" fill="currentColor"/>
+    </symbol>
+  </svg>
+
   <header>
     <div class="topbar">
       <div class="brand" aria-label="promos+">
-        <img src="img/logo/logo.png" alt="promos+ logo" class="logoMark">
+        <img src="img/logo/logo.png" alt="Promos+" class="logoMark">
         <span>Promos+</span>
       </div>
       <div class="pill" title="Atualizações frequentes">
@@ -343,9 +367,8 @@ src="https://www.facebook.com/tr?id=823583633825968&ev=PageView&noscript=1"
   </header>
 
   <main class="wrap">
-    <!-- HERO -->
     <div class="hero">
-      <div class="heroCard">
+      <div class="heroCard" style="margin: auto;">
         <h1>Promoções de tecnologia que realmente valem a pena.</h1>
         <p class="sub">
           Entre no <strong>promos+</strong> e receba ofertas quando estiverem boas de verdade.
@@ -359,44 +382,44 @@ src="https://www.facebook.com/tr?id=823583633825968&ev=PageView&noscript=1"
           <span class="badge">📦 Ofertas podem expirar</span>
         </div>
 
-       <div class="ctaMain">
-          <a class="btn btnWhatsapp" href="#" rel="noopener">
-            <!-- WhatsApp icon (SVG) -->
-            <svg width="20" height="20" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
-              <path class="phone-shift" d="M19.11 17.55c-.29-.14-1.69-.83-1.95-.92-.26-.1-.45-.14-.64.14-.19.29-.74.92-.91 1.11-.17.19-.33.21-.62.07-.29-.14-1.21-.45-2.31-1.43-.86-.77-1.44-1.71-1.61-2-.17-.29-.02-.45.13-.59.13-.13.29-.33.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.55-.88-2.12-.23-.56-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 1-1 2.43 0 1.43 1.02 2.82 1.16 3.02.14.19 2.01 3.07 4.88 4.3.68.29 1.21.46 1.62.59.68.22 1.3.19 1.79.12.55-.08 1.69-.69 1.93-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33z" fill="currentColor"/>
-              <path d="M16.02 3C8.84 3 3 8.83 3 16c0 2.25.6 4.45 1.74 6.38L3 29l6.78-1.78A12.9 12.9 0 0 0 16.02 29C23.2 29 29 23.17 29 16S23.2 3 16.02 3zm0 23.5c-2.01 0-3.98-.54-5.7-1.56l-.41-.24-4.02 1.06 1.07-3.92-.27-.41A10.4 10.4 0 0 1 5.62 16c0-5.74 4.67-10.4 10.4-10.4 5.74 0 10.4 4.66 10.4 10.4 0 5.74-4.66 10.4-10.4 10.4z" fill="currentColor"/>
+        <div class="ctaMain">
+          <!-- ALTERE APENAS OS LINKS -->
+          <a class="btn" id="btnGrupo" href="https://chat.whatsapp.com/GsRtax70QtACpzT34IDb4K" target="_blank" rel="noopener noreferrer">
+            <svg width="20" height="20" aria-hidden="true" focusable="false">
+              <use href="#ico-whatsapp"></use>
             </svg>
             Entrar no Grupo
           </a>
 
-          <a href="#" rel="noopener">
-          <button class="btn btnSecondary" id="btnHowItWorks" type="button">
-              <svg width="20" height="20" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
-              <path class="phone-shift" d="M19.11 17.55c-.29-.14-1.69-.83-1.95-.92-.26-.1-.45-.14-.64.14-.19.29-.74.92-.91 1.11-.17.19-.33.21-.62.07-.29-.14-1.21-.45-2.31-1.43-.86-.77-1.44-1.71-1.61-2-.17-.29-.02-.45.13-.59.13-.13.29-.33.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.55-.88-2.12-.23-.56-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 1-1 2.43 0 1.43 1.02 2.82 1.16 3.02.14.19 2.01 3.07 4.88 4.3.68.29 1.21.46 1.62.59.68.22 1.3.19 1.79.12.55-.08 1.69-.69 1.93-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33z" fill="currentColor"/>
-              <path d="M16.02 3C8.84 3 3 8.83 3 16c0 2.25.6 4.45 1.74 6.38L3 29l6.78-1.78A12.9 12.9 0 0 0 16.02 29C23.2 29 29 23.17 29 16S23.2 3 16.02 3zm0 23.5c-2.01 0-3.98-.54-5.7-1.56l-.41-.24-4.02 1.06 1.07-3.92-.27-.41A10.4 10.4 0 0 1 5.62 16c0-5.74 4.67-10.4 10.4-10.4 5.74 0 10.4 4.66 10.4 10.4 0 5.74-4.66 10.4-10.4 10.4z" fill="currentColor"/>
+          <a class="btn" id="btnCanal" href="https://whatsapp.com/channel/0029VbC5Qu12kNFwLhNqvo3W" target="_blank" rel="noopener noreferrer">
+            <svg width="20" height="20" aria-hidden="true" focusable="false">
+              <use href="#ico-whatsapp"></use>
             </svg>
             Entrar no Canal
-          </button>
           </a>
         </div>
 
-        <p class="hint">
-          Dica: salve o canal nos favoritos para não perder as melhores ofertas.
-        </p>
+        <p class="hint">Dica: salve o canal nos favoritos para não perder as melhores ofertas.</p>
       </div>
 
+      <!-- ====== AQUI: substitui as 2 imagens por um carrossel ====== -->
       <div class="grid2">
-        <div class="ph" title="Espaço para imagem/print do seu canal">
-          <div>
-            <img src="img/promos/promo1.jpg" alt="Image" width="180">
+        <div class="carousel" aria-label="Carrossel de promoções">
+          <button class="carousel-btn left" type="button" aria-label="Anterior" data-carousel="prev">‹</button>
+
+          <div class="carousel-track" id="promoCarousel">
+            <div class="carousel-slide" title="Espaço para imagem/print do seu canal">
+              <img src="img/promos/promo1.jpg" alt="Promo 1">
+            </div>
+            <div class="carousel-slide" title="Espaço para imagem/print do seu criativo">
+              <img src="img/promos/promo2.jpg" alt="Promo 2">
+            </div>
           </div>
-        </div>
-        <div class="ph" title="Espaço para imagem/print do seu criativo">
-          <div>
-            <img src="img/promos/promo2.jpg" alt="Image" width="180">
-          </div>
+
+          <button class="carousel-btn right" type="button" aria-label="Próximo" data-carousel="next">›</button>
         </div>
       </div>
+      <!-- ====== FIM do carrossel ====== -->
     </div>
 
     <!-- BENEFÍCIOS -->
@@ -417,27 +440,6 @@ src="https://www.facebook.com/tr?id=823583633825968&ev=PageView&noscript=1"
         </div>
       </div>
     </section>
-
-    <!-- PROVA / EXEMPLOS -->
-<!--
-    <section>
-      <h2 class="sectionTitle">Exemplos (adicione seus prints)</h2>
-      <div class="grid2">
-        <div class="ph">
-          <div>
-            <strong>Print de oferta (antes/depois)</strong>
-            <small>(coloque aqui uma imagem de preço normal vs promo)</small>
-          </div>
-        </div>
-        <div class="ph">
-          <div>
-            <strong>Print de prova social</strong>
-            <small>(ex: “valeu, peguei barato” — sem dados sensíveis)</small>
-          </div>
-        </div>
-      </div>
-    </section>
--->
 
     <!-- FAQ -->
     <section class="faq">
@@ -474,80 +476,41 @@ src="https://www.facebook.com/tr?id=823583633825968&ev=PageView&noscript=1"
     </footer>
   </main>
 
-  <!-- Floating WhatsApp button -->
-  <button class="fab" id="fabWhats" aria-label="Abrir WhatsApp">
-    <svg width="22" height="22" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
-      <path class="phone-shift" d="M19.11 17.55c-.29-.14-1.69-.83-1.95-.92-.26-.1-.45-.14-.64.14-.19.29-.74.92-.91 1.11-.17.19-.33.21-.62.07-.29-.14-1.21-.45-2.31-1.43-.86-.77-1.44-1.71-1.61-2-.17-.29-.02-.45.13-.59.13-.13.29-.33.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.55-.88-2.12-.23-.56-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 1-1 2.43 0 1.43 1.02 2.82 1.16 3.02.14.19 2.01 3.07 4.88 4.3.68.29 1.21.46 1.62.59.68.22 1.3.19 1.79.12.55-.08 1.69-.69 1.93-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33z" fill="currentColor"/>
-      <path d="M16.02 3C8.84 3 3 8.83 3 16c0 2.25.6 4.45 1.74 6.38L3 29l6.78-1.78A12.9 12.9 0 0 0 16.02 29C23.2 29 29 23.17 29 16S23.2 3 16.02 3zm0 23.5c-2.01 0-3.98-.54-5.7-1.56l-.41-.24-4.02 1.06 1.07-3.92-.27-.41A10.4 10.4 0 0 1 5.62 16c0-5.74 4.67-10.4 10.4-10.4 5.74 0 10.4 4.66 10.4 10.4 0 5.74-4.66 10.4-10.4 10.4z" fill="currentColor"/>
+  <!-- FAB abre o mesmo link do GRUPO (manual) -->
+  <a class="fab" id="fabLink" href="https://chat.whatsapp.com/GsRtax70QtACpzT34IDb4K" target="_blank" rel="noopener noreferrer" aria-label="Abrir Grupo">
+    <svg width="22" height="22" aria-hidden="true" focusable="false">
+      <use href="#ico-whatsapp"></use>
     </svg>
-  </button>
+  </a>
 
   <script>
-    // ====== CONFIGURE AQUI ======
-    // Coloque seu número com DDI e DDD, apenas números.
-    // Exemplo BR: 5531999999999
-    const WHATSAPP_NUMBER = "SEU_NUMERO_AQUI";
-
-    // Mensagem padrão que o usuário vai "pré-enviar" ao abrir o WhatsApp
-    const DEFAULT_MESSAGE = "Quero entrar no promos+ e receber promoções de tecnologia.";
-    
-    // Link: para WhatsApp (usa wa.me)
-    function buildWhatsLink() {
-      const msg = encodeURIComponent(DEFAULT_MESSAGE);
-      return `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
-    }
-
-    // ====== Bind buttons ======
-    const btnHero = document.getElementById("btnWhatsHero");
-    const fab = document.getElementById("fabWhats");
-
-    function goWhats() {
-      const link = buildWhatsLink();
-      // Evento de clique no WhatsApp
-      if (typeof fbq === "function") {
-        fbq('track', 'Contact', {
-          channel: 'WhatsApp',
-          project: 'promos+'
-        });
-      }
-
-      if (WHATSAPP_NUMBER === "SEU_NUMERO_AQUI" || !WHATSAPP_NUMBER.trim()) {
-        alert("Troque SEU_NUMERO_AQUI pelo seu número com DDI (ex: 5531999999999).");
-        return;
-      }
-      window.open(link, "_blank", "noopener,noreferrer");
-    }
-
-    btnHero.addEventListener("click", (e) => { e.preventDefault(); goWhats(); });
-    fab.addEventListener("click", goWhats);
-
-    // Smooth scroll to "Como funciona"
-    document.getElementById("btnHowItWorks").addEventListener("click", () => {
-      const el = document.getElementById("como-funciona");
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-
-    // Year
+    // Ano
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Optional: hide floating button near top if you want (simple behavior)
-    const fabBtn = document.getElementById("fabWhats");
-    const heroCard = document.querySelector(".heroCard");
-    const observer = new IntersectionObserver(([entry]) => {
-      // If hero is visible, keep FAB smaller opacity (optional)
-      fabBtn.style.opacity = entry.isIntersecting ? "0.92" : "1";
-    }, { threshold: 0.2 });
-    observer.observe(heroCard);
+    // Tracking Pixel nos botões (opcional, mantém seu comportamento anterior)
+    function trackCTA(tipo) {
+      if (typeof fbq === "function") {
+        fbq("track", "Contact", { channel: tipo, project: "promos+" });
+      }
+    }
+    const btnGrupo = document.getElementById("btnGrupo");
+    const btnCanal = document.getElementById("btnCanal");
+    if (btnGrupo) btnGrupo.addEventListener("click", () => trackCTA("Grupo"));
+    if (btnCanal) btnCanal.addEventListener("click", () => trackCTA("Canal"));
+
+    // Carrossel: setas (desktop) + swipe nativo (mobile)
+    const track = document.getElementById("promoCarousel");
+    const prevBtn = document.querySelector('[data-carousel="prev"]');
+    const nextBtn = document.querySelector('[data-carousel="next"]');
+
+    function scrollByOne(direction) {
+      if (!track) return;
+      const width = track.clientWidth; // 1 slide por vez
+      track.scrollBy({ left: direction * width, behavior: "smooth" });
+    }
+
+    if (prevBtn) prevBtn.addEventListener("click", () => scrollByOne(-1));
+    if (nextBtn) nextBtn.addEventListener("click", () => scrollByOne(1));
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
